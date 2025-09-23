@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 18px;
+  margin-top: 8px;
   margin-bottom: 8px;
 }
 .logo-top img {
@@ -201,4 +201,5 @@ th, td {
 th {
   background-color: #c8e6c9;
 }
+
 
