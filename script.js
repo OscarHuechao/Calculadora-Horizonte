@@ -116,7 +116,11 @@ document.getElementById("creditForm").addEventListener("submit", function (e) {
     totalConIntereses = saldoFinanciar;
   }
   const totalParcela = abonoFinal + totalConIntereses;
-  const formatCLP = (num) => new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', minimumFractionDigits: 0 }).format(num);
+  const formatCLP = (num) => {
+    // Formato CLP con espacio entre $ y el valor
+    let clp = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', minimumFractionDigits: 0 }).format(num);
+    return clp.replace('$', '$ ');
+  };
   const formatUF = (num) => (valorUF ? (new Intl.NumberFormat('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(num) + " UF") : '—');
   const safeUF = (num) => (valorUF ? formatUF(num / valorUF) : '—');
   const resultadoHTML = `
