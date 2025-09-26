@@ -1,14 +1,223 @@
+.btn-guardar, .btn-correo {
+  padding: 10px 18px;
+  margin: 0 8px;
+  background: #43cea2;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-guardar:hover, .btn-correo:hover {
+  background: #185a9d;
+}
+/* Botón/enviar debajo del cuadro resumen */
+.resumen-enviar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+.btn-enviar {
+  width: 100%;
+  max-width: 400px;
+  padding: 14px 0;
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-enviar:hover {
+  background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+}
+.img-enviar {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+}
+.resumen-titulo-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: #e8f5e9;
+  border-bottom: 1.5px solid #b2dfdb;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding: 12px 0 8px 0;
+  box-shadow: 0 2px 6px rgba(44, 62, 80, 0.04);
+  margin-bottom: 0;
+}
+.resumen-titulo-header > div:first-child {
+  flex: 1;
+}
+/* Validez debajo del título */
+.validez-titulo {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2e7d32;
+  margin-left: 40px;
+  vertical-align: middle;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  letter-spacing: 0.5px;
+}
+/* Fecha y validez debajo del cuadro resumen */
+.resumen-fecha {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #2e7d32;
+}
+.resumen-fecha .validez {
+  font-size: 0.95rem;
+  color: #555;
+}
+/* Datos del resumen arriba de la tabla, responsivo */
+.resumen-datos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+@media (max-width: 600px) {
+  .resumen-datos {
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.95rem;
+  }
+}
+/* Campos en la misma línea para parcela y proyecto */
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+/* Título y logo en la misma línea, centrados */
+.resumen-titulo-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8f5e9;
+  border-bottom: 1.5px solid #b2dfdb;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding: 12px 0 8px 0;
+  box-shadow: 0 2px 6px rgba(44, 62, 80, 0.04);
+  margin-bottom: 0;
+}
+.resumen-titulo-superior {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2e7d32;
+  margin-right: 40px;
+}
+.logo-resumen-inline {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+.logo-resumen-inline img {
+  width: 90px;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  margin-left: 40px;
+}
+@media (max-width: 600px) {
+  .logo-resumen-inline img {
+    width: 60px;
+    border-radius: 10px;
+    margin-left: 16px;
+  }
+}
+/* Cuadro resumen con fondo, borde y padding */
+.resultado {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(44,62,80,0.07);
+  border: 1.5px solid #b2dfdb;
+  margin-top: 24px;
+  padding-bottom: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* Título del resumen en la parte superior */
+.resumen-titulo-superior {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 8px;
+  margin-top: 0;
+  color: #2e7d32;
+  background: #e8f5e9;
+  border-bottom: 1.5px solid #b2dfdb;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 10px 0 6px 0;
+  box-shadow: 0 2px 6px rgba(44, 62, 80, 0.04);
+}
+/* Encabezado del resumen con logo y título */
+.resumen-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+.resumen-titulo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-left: 8px;
+}
+/* Logo en el resumen, costado izquierdo */
+.logo-resumen {
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.logo-resumen img {
+  width: 48px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+@media (max-width: 600px) {
+  .logo-resumen img {
+    width: 32px;
+    border-radius: 6px;
+  }
+}
 /* Logo superior pequeño y responsivo */
 .logo-top {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 8px;
+  margin-top: 18px;
   margin-bottom: 8px;
 }
 .logo-top img {
-  width: 100px;
+  width: 130px;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
@@ -44,13 +253,13 @@
   box-shadow: none;
   filter: blur(0.5px) grayscale(30%);
 }
+
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 20px;
   min-height: 100vh;
   background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 40%, #a5d6a7 100%);
-}
 }
 
 .container {
@@ -74,7 +283,6 @@ body {
   height: auto;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-}
 }
 
 /* Fondo ya definido arriba, se elimina el gradiente duplicado */
@@ -201,5 +409,3 @@ th, td {
 th {
   background-color: #c8e6c9;
 }
-
-
