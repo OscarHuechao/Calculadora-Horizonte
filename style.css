@@ -49,8 +49,11 @@
     margin-bottom: 2px;
   }
   .resumen-titulo-header {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    gap: 8px;
     padding: 6px 2px;
     font-size: 0.95rem;
     margin: 0 auto 6px auto;
@@ -58,10 +61,26 @@
     border-radius: 0;
     box-shadow: none;
   }
+  .resumen-titulo-superior {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+    text-align: center;
+    white-space: normal;
+    flex: 0 1 auto;
+  }
+  .logo-resumen-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 auto;
+  }
   .logo-resumen-inline img {
-    width: 28px;
-    margin-left: 6px;
+    width: 32px;
+    margin-left: 4px;
     border-radius: 7px;
+    vertical-align: middle;
   }
   .resumen-datos {
     flex-direction: column;
