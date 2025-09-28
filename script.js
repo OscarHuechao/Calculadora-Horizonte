@@ -1,4 +1,5 @@
 // Sincronizar porcentaje y valor de abono/pie
+
 document.getElementById('porcentajePie').addEventListener('input', function(e) {
   let porcentajeValue = e.target.value.replace(/[^\d\.]/g, '');
   // Limitar a dos dígitos enteros y dos decimales mientras se edita
