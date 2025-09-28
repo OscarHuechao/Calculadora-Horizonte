@@ -9,9 +9,9 @@
 <body>
   <div class="container">
     <div class="logo-top">
-      <img src="Logo-Horizonte.jpg" alt="Logo Horizonte" />
+      <img src="Logo-Horizonte.jpg" alt="Logo Horizonte" style="width:90px; max-width:30vw; border-radius:14px; box-shadow:0 2px 8px rgba(0,0,0,0.10); margin-bottom:8px;" />
     </div>
-    <h1>Simulador de Crédito para Parcelas Horizonte</h1>
+    <h1 style="font-size:1.3rem; font-weight:700; color:#185a9d; margin-bottom:10px; text-align:center; letter-spacing:0.5px;">Simulador de Crédito para Parcelas Horizonte</h1>
     <form id="creditForm">
       <div class="input-row">
         <label for="nombreProyecto">Nombre del Proyecto:</label>
@@ -62,18 +62,16 @@
       <button type="button" id="btnLimpiar">Limpiar</button>
     </form>
 
-    <div id="resultado" class="resultado">
-  <div class="resumen-titulo-header" style="display:flex; justify-content:center; align-items:center; max-width:600px; margin:0 auto 12px auto; background:#c8e6c9; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.07); padding:8px 24px;">
-        <span class="resumen-titulo-superior" style="font-size:1.25em; font-weight:700; color:#222; white-space:nowrap;">
-          Resumen de Simulación &rarr; Válida por 15 días
-        </span>
-        <span class="logo-resumen-inline" style="margin-left:18px;"><img src="Logo-Horizonte.jpg" alt="Logo Horizonte" style="height:48px; vertical-align:middle;" /></span>
+    <div id="resultado" class="resultado" style="border-radius:14px; box-shadow:0 2px 8px rgba(44,62,80,0.10); border:1.5px solid #b2dfdb; background:#fff; margin-top:18px; padding:10px 4px;">
+      <div class="resumen-titulo-header" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; background:#e8f5e9; border-bottom:1.5px solid #b2dfdb; border-top-left-radius:12px; border-top-right-radius:12px; padding:8px 0 4px 0; box-shadow:0 2px 6px rgba(44,62,80,0.04); margin-bottom:0;">
+        <span class="resumen-titulo-superior" style="font-size:1.1rem; font-weight:700; color:#185a9d; margin-bottom:2px; text-align:center;">Resumen de Simulación <span style='color:#2e7d32;font-size:0.95em;'>válida por 15 días</span></span>
+        <span class="logo-resumen-inline" style="margin-top:2px;"><img src="Logo-Horizonte.jpg" alt="Logo Horizonte" style="width:36px; border-radius:7px; vertical-align:middle; box-shadow:0 1px 4px rgba(0,0,0,0.07);" /></span>
       </div>
       <div id="resumen-content"></div>
-      <div class="resumen-fecha">
+      <div class="resumen-fecha" style="text-align:center; margin-top:8px; font-size:0.95rem; color:#2e7d32;">
         <span id="fechaSimulacion"></span>
       </div>
-      <div class="resumen-fecha">
+      <div class="resumen-fecha" style="text-align:center; font-size:0.92rem; color:#555;">
         <span id="fechaSimulacionTexto">Fecha de Simulación: </span>
       </div>
     </div>
