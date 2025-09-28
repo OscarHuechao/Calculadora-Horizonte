@@ -2,76 +2,81 @@
   body {
     padding: 0;
     background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 40%, #a5d6a7 100%);
-  }
-  .container {
-    max-width: 100vw;
-    padding: 4px;
-    border-radius: 0;
-    box-shadow: none;
-    margin: 0;
-  }
-  h1 {
-    font-size: 1rem;
-    margin-bottom: 6px;
-    text-align: center;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-  }
-  label {
-    font-size: 0.88rem;
-    margin-top: 6px;
-    margin-bottom: 2px;
-    font-weight: 600;
-  }
-  input, button {
-    font-size: 0.92rem;
-    padding: 7px 8px;
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 7px;
-  }
-  .input-row {
-    flex-direction: column;
-    gap: 2px;
-    align-items: stretch;
-    margin-bottom: 8px;
-    width: 100%;
-  }
-  .input-group {
-    flex-direction: column;
-    gap: 2px;
-    align-items: stretch;
-    width: 100%;
-  }
-  .logo-top img {
-    width: 44px;
-    border-radius: 8px;
-    margin-bottom: 2px;
-  }
   .resumen-titulo-header {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2px;
-    padding: 2px 0 2px 0;
-    font-size: 0.92rem;
+    padding: 4px 0 4px 0;
+    font-size: 1rem;
     margin: 0 auto 0 auto;
     max-width: 100vw;
     border-radius: 0;
     box-shadow: none;
-  }
+    background: #e8f5e9;
+    font-weight: 700;
   .resumen-titulo-superior {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: #222;
-    margin: 0;
+    margin: 0 0 2px 0;
     text-align: center;
     white-space: normal;
-    flex: 0 1 auto;
-  }
+    flex: none;
+  input, button {
   .logo-resumen-inline {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    margin-left: 0;
+    margin-top: 2px;
+  .input-row {
+  .logo-resumen-inline img {
+    width: 36px;
+    margin-left: 0;
+    border-radius: 7px;
+    vertical-align: middle;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  }
+  .input-group {
+    padding: 6px 2px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(44,62,80,0.07);
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  .logo-top img {
+    width: 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 2px 0;
+    font-size: 0.95rem;
+    margin: 0 auto 2px auto;
+    max-width: 100vw;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0 auto 0 auto;
+    max-width: 100vw;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 6px;
+    font-size: 0.92rem;
+  .resumen-titulo-superior {
+    font-size: 1rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #185a9d;
+    padding: 4px 2px;
+    border-width: 1px;
+    border-radius: 0;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
     align-items: center;
     justify-content: center;
     flex: 0 1 auto;
