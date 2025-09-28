@@ -1,4 +1,27 @@
 @media (max-width: 600px) {
+  table {
+    border: 1.5px solid #185a9d;
+    border-radius: 8px;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+  }
+  th {
+    border-right: 1.5px solid #185a9d !important;
+    border-bottom: 1.5px solid #185a9d !important;
+    background: #e0f7fa;
+  }
+  td {
+    border-right: 1.5px solid #185a9d !important;
+    border-bottom: 1.5px solid #185a9d !important;
+    background: #fff;
+  }
+  tr:last-child td {
+    border-bottom: none !important;
+  }
+  th:last-child, td:last-child {
+    border-right: none !important;
+  }
   .resumen-valor-clp {
     display: inline-flex;
     align-items: center;
@@ -657,4 +680,3 @@ th {
   }
 
 
-  
