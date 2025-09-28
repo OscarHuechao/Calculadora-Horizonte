@@ -165,3 +165,4 @@ document.getElementById("btnLimpiar").addEventListener("click", function () {
   document.getElementById('nombreCliente').value = '';
   document.getElementById('numeroParcela').value = '';
 });
+
