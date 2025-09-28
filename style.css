@@ -8,26 +8,26 @@
     color: #185a9d;
     white-space: nowrap;
   }
-  .resumen-valor-clp {
-    display: inline-flex;
-    align-items: center;
-    gap: 2px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: #185a9d;
-    white-space: nowrap;
-    font-weight: 700;
   .resumen-valor-clp .simbolo {
     margin-right: 2px;
     font-weight: 700;
     color: #185a9d;
-    font-size: 0.82rem;
-  }
+    font-size: 1em;
+    font-weight: 600;
   .resumen-valor-uf {
     display: inline-flex;
     align-items: center;
     gap: 2px;
-    font-size: 0.82rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #185a9d;
+    white-space: nowrap;
+  }
+  .resumen-valor-uf .simbolo-uf {
+    margin-right: 2px;
+    font-weight: 700;
+    color: #185a9d;
+    font-size: 1em;
     font-weight: 600;
     color: #185a9d;
     white-space: nowrap;
@@ -655,3 +655,6 @@ th {
     white-space: nowrap;
     font-weight: 600;
   }
+
+
+  
