@@ -1,5 +1,5 @@
 @media (max-width: 600px) {
-  .resumen-valor-uf {
+  .resumen-valor-clp {
     display: inline-flex;
     align-items: center;
     gap: 2px;
@@ -7,6 +7,12 @@
     font-weight: 600;
     color: #185a9d;
     white-space: nowrap;
+  }
+  .resumen-valor-clp .simbolo {
+    margin-right: 2px;
+    font-weight: 700;
+    color: #185a9d;
+    font-size: 1em;
   }
   .resumen-valor-uf .simbolo-uf {
     margin-right: 2px;
