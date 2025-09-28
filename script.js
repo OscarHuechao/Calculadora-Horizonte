@@ -1,656 +1,167 @@
-@media (max-width: 600px) {
-  .resumen-valor-clp {
-    display: inline-flex;
-    align-items: center;
-    gap: 2px;
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: #185a9d;
-    white-space: nowrap;
+// Sincronizar porcentaje y valor de abono/pie
+document.getElementById('porcentajePie').addEventListener('input', function(e) {
+  let porcentajeValue = e.target.value.replace(/[^\d\.]/g, '');
+  // Limitar a dos dígitos enteros y dos decimales mientras se edita
+  if (porcentajeValue.includes('.')) {
+    let partes = porcentajeValue.split('.');
+    partes[0] = partes[0].slice(0,2); // máximo dos dígitos enteros
+    partes[1] = (partes[1] || '').slice(0,2); // máximo dos decimales
+    porcentajeValue = partes[0] + '.' + partes[1];
+  } else {
+    porcentajeValue = porcentajeValue.slice(0,2); // máximo dos dígitos enteros
   }
-  .resumen-valor-clp .simbolo {
-    margin-right: 2px;
-    font-weight: 700;
-    color: #185a9d;
-    font-size: 1em;
+  // Mostrar el símbolo % en el input
+  if (porcentajeValue) {
+    e.target.value = porcentajeValue + '%';
+  } else {
+    e.target.value = '';
   }
-  .resumen-valor-uf .simbolo-uf {
-    margin-right: 2px;
-    font-weight: 700;
-    color: #185a9d;
-    font-size: 1em;
+  let porcentajePie = parseFloat(porcentajeValue);
+  let valorParcelaRaw = document.getElementById('valorParcela').value.replace(/[^\d]/g, '');
+  let valorParcela = parseFloat(valorParcelaRaw);
+  if (!isNaN(valorParcela) && !isNaN(porcentajePie)) {
+    let abono = Math.round(valorParcela * (porcentajePie / 100));
+    document.getElementById('valorPie').value = '$ ' + abono.toLocaleString('es-CL');
+  } else {
+    document.getElementById('valorPie').value = '';
   }
-  table {
-    border: 1.5px solid #185a9d;
-    border-radius: 8px;
-    border-collapse: separate;
-    border-spacing: 0;
-    overflow: hidden;
+// Al perder el foco, formatear a dos decimales
+document.getElementById('porcentajePie').addEventListener('blur', function(e) {
+  let porcentajeValue = e.target.value.replace(/[^\d\.]/g, '');
+  let porcentajePie = parseFloat(porcentajeValue);
+  if (!isNaN(porcentajePie)) {
+    porcentajeValue = porcentajePie.toFixed(2);
+    e.target.value = porcentajeValue + '%';
   }
-  th {
-    border-right: 1.5px solid #185a9d !important;
-    border-bottom: 1.5px solid #185a9d !important;
-    background: #e0f7fa;
-  }
-  td {
-    border-right: 1.5px solid #185a9d !important;
-    border-bottom: 1.5px solid #185a9d !important;
-    background: #fff;
-  }
-  tr:last-child td {
-    border-bottom: none !important;
-  }
-  th:last-child, td:last-child {
-    border-right: none !important;
-  }
-  body {
-    padding: 0;
-    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 40%, #a5d6a7 100%);
-  .resumen-titulo-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2px;
-    padding: 4px 0 4px 0;
-    font-size: 1rem;
-    margin: 0 auto 0 auto;
-    max-width: 100vw;
-    border-radius: 0;
-    box-shadow: none;
-    background: #e8f5e9;
-    font-weight: 700;
-  .resumen-titulo-superior {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #222;
-    margin: 0 0 2px 0;
-    text-align: center;
-    white-space: normal;
-    flex: none;
-  input, button {
-  .logo-resumen-inline {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: none;
-    margin-left: 0;
-    margin-top: 2px;
-  .resumen-valor-uf {
-    display: inline-flex;
-    align-items: center;
-    gap: 2px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #185a9d;
-    white-space: nowrap;
-  .input-group {
-  .resumen-valor-uf .simbolo-uf {
-    margin-right: 2px;
-    font-weight: 700;
-    color: #185a9d;
-    font-size: 0.95em;
-    display: flex;
-  table {
-    border: 1.5px solid #185a9d;
-    border-radius: 8px;
-    border-collapse: separate;
-    border-spacing: 0;
-    overflow: hidden;
-    font-size: 0.85rem;
-    gap: 4px;
-  th {
-    border-right: 1.5px solid #185a9d !important;
-    border-bottom: 1.5px solid #185a9d !important;
-    background: #e0f7fa;
-    font-size: 0.88rem;
-    font-weight: 700;
-    border-radius: 0;
-  td {
-    border-right: 1.5px solid #185a9d !important;
-    border-bottom: 1.5px solid #185a9d !important;
-    background: #fff;
-    font-size: 0.85rem;
-    font-weight: 600;
-    border-collapse: collapse;
-  .resumen-valor-clp {
-    display: inline-flex;
-    align-items: center;
-    gap: 2px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #185a9d;
-    white-space: nowrap;
-    border-width: 1px;
-    border-radius: 0;
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap;
-    align-items: center;
-    justify-content: center;
-    flex: 0 1 auto;
-    margin-left: 0;
-  }
-  .logo-resumen-inline img {
-    width: 28px;
-    margin-left: 0;
-    border-radius: 7px;
-    vertical-align: middle;
-  }
-  .resumen-datos {
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     justify-content: center;
-     gap: 4px;
-     padding: 4px 2px;
-     font-size: 0.92rem;
-     margin: 0 auto 2px auto;
-     max-width: 100vw;
-     border-radius: 0;
-     box-shadow: none;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 6px;
-  }
-  th, td {
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: #185a9d;
-    padding: 4px 2px;
-    border: 1.5px solid #185a9d !important;
-    border-radius: 0;
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap;
-  }
-  .resumen-valor-clp {
-    display: inline-flex;
-    align-items: center;
-    gap: 2px;
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: #185a9d;
-    white-space: nowrap;
-  }
-  .resumen-valor-clp .simbolo {
-    margin-right: 2px;
-    font-weight: 700;
-    color: #185a9d;
-    font-size: 1em;
-  }
-  .resumen-titulo-superior {
-    font-size: 1.1rem !important;
-    font-weight: 700 !important;
-    color: #185a9d !important;
-    margin-bottom: 2px !important;
-    text-align: center !important;
-    background: none !important;
-    border: none !important;
-    letter-spacing: 0.5px !important;
-    white-space: normal !important;
-  }
-  }
-  .resumen-valor-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-    font-size: 0.92rem;
-    padding: 2px 0;
-  }
-  .resumen-valor-clp, .resumen-valor-uf {
-    display: inline-block;
-    font-size: 0.92rem;
-    white-space: nowrap;
-    font-weight: 600;
-    color: #185a9d;
-    margin: 0 2px;
-  }
-  button {
-    font-size: 0.95rem;
-    padding: 9px;
-    border-radius: 7px;
-    margin-top: 8px;
-    font-weight: 700;
-    background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
-    color: #fff;
-    box-shadow: 0 1px 4px rgba(44,62,80,0.07);
-    border: none;
-  }
-  button:hover {
-    background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
-  }
-}
-.btn-guardar, .btn-correo {
-  padding: 10px 18px;
-  margin: 0 8px;
-  background: #43cea2;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(44,62,80,0.10);
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.btn-guardar:hover, .btn-correo:hover {
-  background: #185a9d;
-}
-/* Botón/enviar debajo del cuadro resumen */
-.resumen-enviar {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 18px;
-}
-.btn-enviar {
-  width: 100%;
-  max-width: 400px;
-  padding: 14px 0;
-  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
-  color: #fff;
-  font-size: 1.15rem;
-  font-weight: 700;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(44,62,80,0.10);
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.btn-enviar:hover {
-  background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
-}
-.img-enviar {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(44,62,80,0.10);
-}
-.resumen-titulo-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background: #e8f5e9;
-  border-bottom: 1.5px solid #b2dfdb;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  padding: 12px 0 8px 0;
-  box-shadow: 0 2px 6px rgba(44, 62, 80, 0.04);
-  margin-bottom: 0;
-}
-.resumen-titulo-header > div:first-child {
-  flex: 1;
-}
-/* Validez debajo del título */
-.validez-titulo {
-  display: inline-block;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #2e7d32;
-  margin-left: 40px;
-  vertical-align: middle;
-  background: none;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
-  letter-spacing: 0.5px;
-}
-/* Fecha y validez debajo del cuadro resumen */
-.resumen-fecha {
-  text-align: center;
-  margin-top: 12px;
-  font-size: 1rem;
-  color: #2e7d32;
-}
-.resumen-fecha .validez {
-  font-size: 0.95rem;
-  color: #555;
-}
-/* Datos del resumen arriba de la tabla, responsivo */
-.resumen-datos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  font-size: 1rem;
-}
-@media (max-width: 600px) {
-  .resumen-datos {
-    flex-direction: column;
-    gap: 6px;
-    font-size: 0.95rem;
-  }
-}
-/* Campos en la misma línea para parcela y proyecto */
-.input-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-/* Título y logo en la misma línea, centrados */
-.resumen-titulo-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #e8f5e9;
-  border-bottom: 1.5px solid #b2dfdb;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  padding: 12px 0 8px 0;
-  box-shadow: 0 2px 6px rgba(44, 62, 80, 0.04);
-  margin-bottom: 0;
-}
-.resumen-titulo-superior {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #2e7d32;
-  margin-right: 40px;
-}
-.logo-resumen-inline {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex: 1;
-}
-.logo-resumen-inline img {
-  width: 90px;
-  height: auto;
-  border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-  margin-left: 40px;
-}
-@media (max-width: 600px) {
-  .logo-resumen-inline img {
-    width: 60px;
-    border-radius: 10px;
-    margin-left: 16px;
-  }
-}
-/* Cuadro resumen con fondo, borde y padding */
-.resultado {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(44,62,80,0.07);
-  border: 1.5px solid #b2dfdb;
-  margin-top: 24px;
-  padding-bottom: 18px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-/* Título del resumen en la parte superior */
-.resumen-titulo-superior {
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 8px;
-  margin-top: 0;
-  color: #2e7d32;
-  background: #e8f5e9;
-  border-bottom: 1.5px solid #b2dfdb;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  padding: 10px 0 6px 0;
-  box-shadow: 0 2px 6px rgba(44, 62, 80, 0.04);
-}
-/* Encabezado del resumen con logo y título */
-.resumen-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-bottom: 12px;
-}
-.resumen-titulo {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-left: 8px;
-}
-/* Logo en el resumen, costado izquierdo */
-.logo-resumen {
-  margin-right: 16px;
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-  .logo-resumen-inline img {
-    width: 54px;
-    margin-left: 0;
-    border-radius: 12px;
-    vertical-align: middle;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-}
-  .resumen-titulo-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 6px 0 6px 0;
-    font-size: 1rem;
-    margin: 0 auto 0 auto;
-    max-width: 100vw;
-    border-radius: 0;
-    box-shadow: none;
-    background: #e8f5e9;
-    font-weight: 700;
-}
-.logo-top img {
-  width: 130px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-}
-@media (max-width: 600px) {
-  .logo-top img {
-    width: 56px;
-    border-radius: 8px;
-  }
-}
-/* Logo pequeño y lúdico al costado */
+});
+});
 
-/* Logo centrado detrás del título */
-
-.logo-central {
-  position: absolute;
-  top: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 260px;
-  height: 260px;
-  z-index: 1;
-  opacity: 0.10;
-  pointer-events: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.logo-central img {
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  box-shadow: none;
-  filter: blur(0.5px) grayscale(30%);
-}
-
-body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 20px;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 40%, #a5d6a7 100%);
-}
-
-.container {
-  max-width: 700px;
-  margin: auto;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  position: relative;
-  overflow: hidden;
-}
-
-.logo-lateral {
-  margin-left: 30px;
-  display: flex;
-  align-items: center;
-}
-.logo-lateral img {
-  max-width: 120px;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-}
-
-/* Fondo ya definido arriba, se elimina el gradiente duplicado */
-
-
-@media (max-width: 600px) {
-  body {
-    padding: 5px;
+document.getElementById('valorPie').addEventListener('input', function(e) {
+  let abonoValue = e.target.value.replace(/[^\d]/g, '');
+  // Limitar solo a números enteros
+  abonoValue = abonoValue.slice(0,12); // máximo 12 dígitos para CLP grandes
+  if (abonoValue) {
+    e.target.value = '$ ' + parseInt(abonoValue, 10).toLocaleString('es-CL');
+  } else {
+    e.target.value = '$ ';
   }
-  .container {
-    max-width: 100%;
-    padding: 10px;
-    border-radius: 0;
-    box-shadow: none;
+  let abono = parseInt(abonoValue, 10);
+  let valorParcelaRaw = document.getElementById('valorParcela').value.replace(/[^\d]/g, '');
+  let valorParcela = parseFloat(valorParcelaRaw);
+  if (!isNaN(valorParcela) && !isNaN(abono) && valorParcela > 0) {
+    const porcentaje = (abono / valorParcela) * 100;
+    document.getElementById('porcentajePie').value = porcentaje.toFixed(2);
+  } else {
+    document.getElementById('porcentajePie').value = '';
   }
-  h1 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
+});
+
+// Obtener UF automáticamente
+fetch("https://mindicador.cl/api")
+  .then(response => response.json())
+  .then(data => {
+    const uf = data.uf.valor;
+    document.getElementById("valorUF").value = '$ ' + uf.toLocaleString('es-CL', { minimumFractionDigits: 2 });
+  })
+  .catch(() => {
+    document.getElementById("valorUF").value = "Error al cargar UF";
+  });
+
+// Formatear con puntos el valor de la parcela en tiempo real
+document.getElementById('valorParcela').addEventListener('input', function(e) {
+  let value = e.target.value.replace(/[^\d]/g, '');
+  if (value) {
+    value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    e.target.value = '$ ' + value;
+  } else {
+    e.target.value = '$ ';
   }
-  label {
-    font-size: 1rem;
-    margin-top: 10px;
+});
+
+document.getElementById("creditForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const nombreProyecto = document.getElementById("nombreProyecto")?.value || "";
+  const agenteVentas = document.getElementById("agenteVentas")?.value || "";
+  const numeroParcela = document.getElementById("numeroParcela")?.value || "";
+  const nombreCliente = document.getElementById("nombreCliente")?.value || "";
+  const valorParcelaRaw = document.getElementById("valorParcela").value.replace(/[^\d]/g, '');
+  const valorParcela = parseFloat(valorParcelaRaw);
+  let abonoRaw = document.getElementById("valorPie").value.replace(/\./g, '').replace(/[^\d]/g, '');
+  let abonoFinal = parseFloat(abonoRaw);
+  let porcentajePie = parseFloat(document.getElementById("porcentajePie").value.replace('%',''));
+  if (!isNaN(abonoFinal) && abonoFinal > 0) {
+    porcentajePie = valorParcela > 0 ? Math.round((abonoFinal / valorParcela) * 100) : 0;
+  } else if (!isNaN(porcentajePie)) {
+    abonoFinal = valorParcela * (porcentajePie / 100);
+  } else {
+    abonoFinal = 0;
+    porcentajePie = 0;
   }
-  input, button {
-    font-size: 1rem;
-    padding: 8px;
+  const cuotas = parseInt(document.getElementById("cuotas").value);
+  const interesMensual = parseFloat(document.getElementById("interesMensual").value);
+  let valorUF = document.getElementById("valorUF").value;
+  valorUF = valorUF.replace(/[^\d,\.]/g, '');
+  valorUF = valorUF.replace(/\./g, '').replace(',', '.');
+  valorUF = parseFloat(valorUF);
+  if (isNaN(valorUF) || valorUF <= 0) valorUF = null;
+  const saldoFinanciar = valorParcela - abonoFinal;
+  let valorCuota = 0;
+  let totalConIntereses = 0;
+  if (interesMensual > 0 && cuotas > 0) {
+    const i = interesMensual / 100;
+    valorCuota = saldoFinanciar * (i * Math.pow(1 + i, cuotas)) / (Math.pow(1 + i, cuotas) - 1);
+    totalConIntereses = valorCuota * cuotas;
+  } else {
+    valorCuota = saldoFinanciar / cuotas;
+    totalConIntereses = saldoFinanciar;
   }
-  .logo-central {
-    width: 120px;
-    height: 120px;
-    top: 10px;
-  }
-  .resultado {
-    padding: 10px;
-    font-size: 0.95rem;
-  }
-  table, th, td {
-    font-size: 0.95rem;
-    padding: 6px;
-  }
-}
+  const totalParcela = abonoFinal + totalConIntereses;
+  const formatCLP = (num) => {
+    // Formato CLP con espacio entre $ y el valor
+    let clp = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', minimumFractionDigits: 0 }).format(num);
+    return clp.replace('$', '$ ');
+  };
+  const formatUF = (num) => (valorUF ? (new Intl.NumberFormat('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(num) + " UF") : '—');
+  const safeUF = (num) => (valorUF ? formatUF(num / valorUF) : '—');
+  const resultadoHTML = `
+    <div class="resumen-datos">
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <div><strong>Proyecto:</strong> ${nombreProyecto}</div>
+        <div><strong>Cliente:</strong> ${nombreCliente}</div>
+      </div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:6px;">
+        <div><strong>Agente de Ventas:</strong> ${agenteVentas}</div>
+        <div><strong>N° Parcela:</strong> ${numeroParcela}</div>
+      </div>
+    </div>
+    <table>
+         <tr><th>Concepto</th><th style="border-right:2px solid #185a9d;">CLP</th><th>UF</th></tr>
+         <tr><td>Valor Parcela</td><td><span class="resumen-valor-clp"><span class="simbolo">$</span>${valorParcela.toLocaleString('es-CL')}</span></td><td><span class="resumen-valor-uf"><span class="simbolo-uf">UF</span>${valorUF ? (valorParcela/valorUF).toLocaleString('es-CL', {minimumFractionDigits:2, maximumFractionDigits:2}) : '—'}</span></td></tr>
+         <tr><td>Abono o Pie</td><td><span class="resumen-valor-clp"><span class="simbolo">$</span>${abonoFinal.toLocaleString('es-CL')}</span></td><td><span class="resumen-valor-uf"><span class="simbolo-uf">UF</span>${valorUF ? (abonoFinal/valorUF).toLocaleString('es-CL', {minimumFractionDigits:2, maximumFractionDigits:2}) : '—'}</span></td></tr>
+         <tr><td>Saldo a Financiar</td><td><span class="resumen-valor-clp"><span class="simbolo">$</span>${saldoFinanciar.toLocaleString('es-CL')}</span></td><td><span class="resumen-valor-uf"><span class="simbolo-uf">UF</span>${valorUF ? (saldoFinanciar/valorUF).toLocaleString('es-CL', {minimumFractionDigits:2, maximumFractionDigits:2}) : '—'}</span></td></tr>
+         <tr><td>Número de Cuotas</td><td>${cuotas}</td><td>—</td></tr>
+         <tr><td>Valor Cuota</td><td><span class="resumen-valor-clp"><span class="simbolo">$</span>${Math.round(valorCuota).toLocaleString('es-CL')}</span></td><td><span class="resumen-valor-uf"><span class="simbolo-uf">UF</span>${valorUF ? (valorCuota/valorUF).toLocaleString('es-CL', {minimumFractionDigits:2, maximumFractionDigits:2}) : '—'}</span></td></tr>
+         <tr><td>Total Cuotas con Intereses</td><td><span class="resumen-valor-clp"><span class="simbolo">$</span>${Math.round(totalConIntereses).toLocaleString('es-CL')}</span></td><td><span class="resumen-valor-uf"><span class="simbolo-uf">UF</span>${valorUF ? (totalConIntereses/valorUF).toLocaleString('es-CL', {minimumFractionDigits:2, maximumFractionDigits:2}) : '—'}</span></td></tr>
+         <tr><td>Valor Total Parcela</td><td><span class="resumen-valor-clp"><span class="simbolo">$</span>${Math.round(totalParcela).toLocaleString('es-CL')}</span></td><td><span class="resumen-valor-uf"><span class="simbolo-uf">UF</span>${valorUF ? (totalParcela/valorUF).toLocaleString('es-CL', {minimumFractionDigits:2, maximumFractionDigits:2}) : '—'}</span></td></tr>
+    </table>
+  `;
+  document.getElementById("resumen-content").innerHTML = resultadoHTML;
+  // Mostrar fecha de simulación
+  const fecha = new Date();
+  const fechaStr = fecha.toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' });
+  document.getElementById("fechaSimulacionTexto").textContent = `Fecha de Simulación: ${fechaStr}`;
+  // ...no actualizar encabezado, ya que esos elementos no existen en el HTML...
+});
 
-.container {
-  max-width: 700px;
-  margin: auto;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
-
-h1 {
-  text-align: center;
-  color: #2c3e50;
-  margin-bottom: 25px;
-  position: relative;
-  z-index: 2;
-  background: transparent;
-}
-
-label {
-  display: block;
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-.input-group {
-  display: flex;
-  align-items: center;
-}
-
-.input-group input {
-  flex: 1;
-}
-
-.input-group span {
-  margin-left: 8px;
-  font-weight: bold;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-button {
-  margin-top: 25px;
-  width: 100%;
-  padding: 12px;
-  background-color: #00796b;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #004d40;
-}
-
-.resultado {
-  margin-top: 30px;
-  background: #f9fbe7;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-
-th, td {
-  border: 2px solid #003f79;
-  padding: 10px;
-  text-align: left;
-}
-
-th {
-  background-color: #c8e6c9;
-  /* Ajuste para valores CLP y UF en una sola línea en la tabla resumen */
-  .resumen-valor-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-    font-size: 0.88rem;
-    padding: 2px 0;
-  }
-  .resumen-valor-clp, .resumen-valor-uf {
-    display: inline-block;
-    font-size: 0.88rem;
-    white-space: nowrap;
-    font-weight: 600;
-  }
+document.getElementById("btnLimpiar").addEventListener("click", function () {
+  document.getElementById("valorParcela").value = "$ ";
+  document.getElementById("porcentajePie").value = "";
+  document.getElementById("valorPie").value = "$ ";
+  document.getElementById("cuotas").value = "";
+  document.getElementById("interesMensual").value = "";
+  document.getElementById("resultado").innerHTML = "";
+  document.getElementById('nombreProyecto').value = '';
+  document.getElementById('agenteVentas').value = '';
+  document.getElementById('nombreCliente').value = '';
+  document.getElementById('numeroParcela').value = '';
+});
