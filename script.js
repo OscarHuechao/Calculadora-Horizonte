@@ -136,13 +136,13 @@ document.getElementById("creditForm").addEventListener("submit", function (e) {
     </div>
     <table>
          <tr><th>Concepto</th><th style="border-right:2px solid #185a9d;">CLP</th><th>UF</th></tr>
-         <tr><td>Valor Parcela</td><td>${formatCLP(valorParcela)}</td><td>${safeUF(valorParcela)}</td></tr>
-         <tr><td>Abono o Pie</td><td>${formatCLP(abonoFinal)}</td><td>${safeUF(abonoFinal)}</td></tr>
-         <tr><td>Saldo a Financiar</td><td>${formatCLP(saldoFinanciar)}</td><td>${safeUF(saldoFinanciar)}</td></tr>
+         <tr><td>Valor Parcela</td><td><span class="resumen-valor-clp"><span class="simbolo">$</span>${valorParcela.toLocaleString('es-CL')}</span></td><td>${safeUF(valorParcela)}</td></tr>
+         <tr><td>Abono o Pie</td><td><span class="resumen-valor-clp"><span class="simbolo">$</span>${abonoFinal.toLocaleString('es-CL')}</span></td><td>${safeUF(abonoFinal)}</td></tr>
+         <tr><td>Saldo a Financiar</td><td><span class="resumen-valor-clp"><span class="simbolo">$</span>${saldoFinanciar.toLocaleString('es-CL')}</span></td><td>${safeUF(saldoFinanciar)}</td></tr>
          <tr><td>Número de Cuotas</td><td>${cuotas}</td><td>—</td></tr>
-         <tr><td>Valor Cuota</td><td>${formatCLP(valorCuota)}</td><td>${safeUF(valorCuota)}</td></tr>
-         <tr><td>Total Cuotas con Intereses</td><td>${formatCLP(totalConIntereses)}</td><td>${safeUF(totalConIntereses)}</td></tr>
-         <tr><td>Valor Total Parcela</td><td>${formatCLP(totalParcela)}</td><td>${safeUF(totalParcela)}</td></tr>
+         <tr><td>Valor Cuota</td><td><span class="resumen-valor-clp"><span class="simbolo">$</span>${Math.round(valorCuota).toLocaleString('es-CL')}</span></td><td>${safeUF(valorCuota)}</td></tr>
+         <tr><td>Total Cuotas con Intereses</td><td><span class="resumen-valor-clp"><span class="simbolo">$</span>${Math.round(totalConIntereses).toLocaleString('es-CL')}</span></td><td>${safeUF(totalConIntereses)}</td></tr>
+         <tr><td>Valor Total Parcela</td><td><span class="resumen-valor-clp"><span class="simbolo">$</span>${Math.round(totalParcela).toLocaleString('es-CL')}</span></td><td>${safeUF(totalParcela)}</td></tr>
     </table>
   `;
   document.getElementById("resumen-content").innerHTML = resultadoHTML;
